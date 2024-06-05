@@ -4,7 +4,7 @@ import { searchParamInformation } from './definition';
 export async function fetchLocation(){
     try{
         const client = await pool.connect();
-        const res = await client.query('select airport.airportid,airport.city,airport.country,airport.airportname from  airport ');
+        const res = await client.query('select distinct airport.city,airport.country,airport.airportname from airport order by airport.city');
         client.release();
         return res.rows
     }catch(error){

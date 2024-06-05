@@ -44,6 +44,7 @@ export default function DestinationCard({ type, city, airport,inputCity,inputCou
             <span className="text-slate-400 text-md">{type === "Departure" ? "From" : "To"}</span>
             <div className="flex flex-col w-full">
             <h1 className={`${poppins.className} flex flex-1 overflow-hidden text-ellipsis whitespace-nowrap w-full  text-5xl font-bold `}>{selectedCity}</h1>
+            <h2 className={`${poppins.className} flex flex-1 overflow-hidden text-ellipsis whitespace-nowrap w-full  text-3xl text-gray-300 `}>{selectedCountry}</h2>
             <span className="text-slate-400 overflow-hidden text-ellipsis whitespace-nowrap text-md">{selectedAirport}</span>
             </div>
             
