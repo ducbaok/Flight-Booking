@@ -11,7 +11,6 @@ export default function DestinationCard({ type, city, airport,inputCity,inputCou
     const [selectedCity, setSelectedCity] = useState(city);
     const [selectedCountry,setSelectedCountry] = useState("Vietnam");
     const [selectedAirport, setSelectedAirport] = useState(airport);
-    
     const changeSearchMenuState = () => {
         setSearchMenuState(!searchMenuState);
     };
@@ -48,16 +47,16 @@ export default function DestinationCard({ type, city, airport,inputCity,inputCou
             <span className="text-slate-400 overflow-hidden text-ellipsis whitespace-nowrap text-md">{selectedAirport}</span>
             </div>
             
-            <div ref={node}  className={`absolute  ${searchMenuState ? 'block' : 'hidden'}  bg-white w-[360px] h-[300px] border-2 border-gray-200`}>
-                <input onClick={(e) => e.stopPropagation()} onChange={(e) => setSelectedCity(e.target.value)}  type="text"  placeholder="From..." className="w-full h-[50px] border-b-2" />
+            <div ref={node}  className={`absolute  ${searchMenuState ? 'block' : 'hidden'} transform translate-y-28 tran-x-  bg-white w-[300px] h-[280px] border-2 border-gray-200`}>
+                <input onClick={(e) => e.stopPropagation()} onChange={(e) => setSelectedCity(e.target.value)}  type="text"  placeholder="From..." className="w-full font-semibold h-[50px] border-b-2" />
                 <input type="hidden" name={inputCity} value={selectedCity} />
                 <input type="hidden" name={inputCountry} value={selectedCountry} />
                 <div className="flex flex-col px-2">
                 <h3 className={`text-slate-400 font-bold ${poppins.className}`}>POPULAR CITES</h3>
                 <ul className="overflow-auto h-[200px]">
                     {
-                        LocationData2.map((l) => (
-                            <li onClick={() => handleClick(l.city,l.name,l.country)}  
+                        LocationData2.map((l : Location) => (
+                            <li onClick={() => handleClick(l.city,l.airportname,l.country)}  
                             className="flex justify-start items-center gap-2 hover:bg-slate-300" 
                             key={l.airportid}>
                                 <p>✈️</p>

@@ -1,25 +1,18 @@
 'use client'
-import { useFormState,useFormStatus } from "react-dom"
 import { useState } from "react";
-import { SearchFlight } from "@/app/lib/action";
 import DestinationCard from "./DestinationCard";
 import TypeCard from "./TypeCard";
 import DateInput from "./dateInput";
 import clsx from "clsx";
-import createUrl from "next/router";
 import { useSearchParams,useRouter,usePathname } from "next/navigation";
-import Link from "next/link";
 import { poppins } from "../asset/font";
 import { buttons } from "@/app/lib/place-holder";
 import { Location } from "@/app/lib/definition";
 export default function FlightSearchForm( {LocationData} : {LocationData : Location[]}) {
     const initialState = {message: "",errors : {}};
-    const pathname = usePathname();
     const router = useRouter();
-    const { replace } = useRouter();
     const searchParams = useSearchParams();
     const [selectedTicketType, setSelectedTicketType] = useState('One Way');
-    const [state, dispatch] = useFormState(SearchFlight,initialState);
     
     function handleButtonClick(value: string) {
     setSelectedTicketType(value);
